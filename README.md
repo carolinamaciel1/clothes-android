@@ -2,6 +2,10 @@
 Teste Android
 
 Objetivo: Construir um site que exiba um catálogo de roupas da Amaro.
+Linguagem: **Kotlin**.
+O código deverá ser escrito em **inglês**.
+Os commits deverão estar no **imperativo**, primeira letra **maiúscula** e em **inglês**.
+
 
 Você deverá fazer um fork neste repositório.
 A entrega deverá ser efetuada até às 23:59 do dia combinado (verificar com seu entrevistador). O prazo não deverá passar 2 dias.
