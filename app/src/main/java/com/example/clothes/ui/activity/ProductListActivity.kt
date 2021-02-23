@@ -40,10 +40,10 @@ class ProductListActivity : AppCompatActivity() {
     }
 
     fun configureList(products: List<Product>) {
-        val recycleView = findViewById<RecyclerView>(R.id.clothes_recyclerview)
-        recycleView.adapter = ProductsListAdapter(products, this)
+        val recyclerView = findViewById<RecyclerView>(R.id.clothes_recyclerview)
+        recyclerView.adapter = ProductsListAdapter(products, this)
         val layoutManager = GridLayoutManager(this, 2)
-        recycleView.layoutManager = layoutManager
+        recyclerView.layoutManager = layoutManager
     }
 }
 
