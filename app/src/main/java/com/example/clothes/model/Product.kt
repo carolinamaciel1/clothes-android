@@ -1,11 +1,14 @@
 package com.example.clothes.model
 
-data class Product(
+import kotlinx.serialization.Serializable
+
+@Serializable
+class Product (
     var image: String,
     var name: String,
     var regular_price: String,
     var actual_price: String,
-    var on_sale: Boolean?,
+    var on_sale: Boolean,
     var installments: String,
     var size: Array<ProductSize>
 )

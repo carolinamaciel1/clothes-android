@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">clothes</string>
     <string name="clothes_title">title product</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="installments">Installments</string>
+    <string name="price">price</string>
+    <string name="name_product">Name of product</string>
 </resources>
