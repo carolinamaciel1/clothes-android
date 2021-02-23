@@ -40,11 +40,11 @@ class ProductsListAdapter(private val products: List<Product>, private val conte
         val imgProduct = itemView.findViewById<ImageView>(R.id.img_product)
         val titleProduct = itemView.findViewById<TextView>(R.id.clothes_title_id)
 
-        var product : Product? = null
+        var product: Product? = null
 
-        init{
-            itemView.setOnClickListener{
-                product?.let{
+        init {
+            itemView.setOnClickListener {
+                product?.let {
                     val intent = Intent(itemView.context, ProductDetailActivity::class.java)
                     intent.putExtraJson(it)
                     itemView.context.startActivity(intent)

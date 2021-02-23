@@ -1,13 +1,13 @@
 package com.example.clothes.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.clothes.R
 import com.example.clothes.model.Product
 import com.example.clothes.model.ProductList
-import com.example.clothes.R
 import com.example.clothes.retrofit.RetrofitInitializer
 import com.example.clothes.ui.adapter.ProductsListAdapter
 import retrofit2.Call

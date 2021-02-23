@@ -6,4 +6,10 @@
     <string name="installments">Installments</string>
     <string name="price">price</string>
     <string name="name_product">Name of product</string>
+    <string name="size_pp">PP</string>
+    <string name="size_p">P</string>
+    <string name="size_m">M</string>
+    <string name="size_g">G</string>
+    <string name="size_gg">GG</string>
+    <string name="sizes">TAMANHO</string>
 </resources>
