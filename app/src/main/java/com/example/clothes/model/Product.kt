@@ -10,5 +10,6 @@ class Product (
     var actual_price: String,
     var on_sale: Boolean,
     var installments: String,
+    var discount_percentage: String,
     var sizes: Array<ProductSize>
 )

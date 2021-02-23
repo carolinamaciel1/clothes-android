@@ -1,7 +1,12 @@
 package com.example.clothes.ui.activity
 
+import android.graphics.Color
 import android.graphics.Paint
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.ForegroundColorSpan
+import android.text.style.RelativeSizeSpan
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -34,11 +39,26 @@ class ProductDetailActivity : AppCompatActivity() {
         val sizeGG = findViewById<TextView>(R.id.size_gg)
 
 
-        fun configUIforOnSale(on_sale: Boolean, actual_price: String) {
+        fun configUIforOnSale(on_sale: Boolean, actual_price: String, discount_percentage: String) {
             onSaleProduct.isVisible = on_sale
             actualPriceProduct.isVisible = on_sale
             priceProduct.paintFlags = if (on_sale) Paint.STRIKE_THRU_TEXT_FLAG else 0
-            actualPriceProduct.text = actual_price
+            val discountString = "$actual_price ($discount_percentage off)"
+            val discountSpannable = SpannableString(discountString)
+            val startIndex = discountString.indexOf("(", 0)
+            discountSpannable.setSpan(
+                ForegroundColorSpan(Color.RED),
+                startIndex,
+                discountString.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            discountSpannable.setSpan(
+                RelativeSizeSpan(0.7f),
+                startIndex,
+                discountString.length,
+                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+            )
+            actualPriceProduct.text = discountSpannable
         }
 
         fun setVisibleSizeItem(item: TextView, isVisible: Boolean) {
@@ -68,7 +88,7 @@ class ProductDetailActivity : AppCompatActivity() {
             } else {
                 Picasso.get().load(R.mipmap.ic_launcher).into(imageProduct);
             }
-            configUIforOnSale(it.on_sale, it.actual_price)
+            configUIforOnSale(it.on_sale, it.actual_price, it.discount_percentage)
         }
     }
 }
