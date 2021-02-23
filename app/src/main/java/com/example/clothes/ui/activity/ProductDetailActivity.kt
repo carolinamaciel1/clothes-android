@@ -7,6 +7,8 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.text.style.RelativeSizeSpan
+import android.view.Gravity
+import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -32,12 +34,7 @@ class ProductDetailActivity : AppCompatActivity() {
         val installmentsProduct = findViewById<TextView>(R.id.installments_product)
         val onSaleProduct = findViewById<ImageView>(R.id.on_sale_product)
         val actualPriceProduct = findViewById<TextView>(R.id.actual_price_product)
-        val sizeP = findViewById<TextView>(R.id.size_p)
-        val sizePP = findViewById<TextView>(R.id.size_pp)
-        val sizeM = findViewById<TextView>(R.id.size_m)
-        val sizeG = findViewById<TextView>(R.id.size_g)
-        val sizeGG = findViewById<TextView>(R.id.size_gg)
-        val sizeU = findViewById<TextView>(R.id.size_u)
+        val linearLayoutSize = findViewById<LinearLayout>(R.id.size_linear_layout)
 
 
         fun configUIforOnSale(on_sale: Boolean, actual_price: String, discount_percentage: String) {
@@ -62,31 +59,25 @@ class ProductDetailActivity : AppCompatActivity() {
             actualPriceProduct.text = discountSpannable
         }
 
-        fun setVisibleSizeItem(item: TextView, isVisible: Boolean) {
-            (item.layoutParams as LinearLayout.LayoutParams).weight = if (isVisible) 1.0f else 0.0f
-            item.width = if (isVisible) LinearLayout.LayoutParams.WRAP_CONTENT else 0
-        }
-
-        fun hiddenAllItems() {
-            setVisibleSizeItem(sizeP, false)
-            setVisibleSizeItem(sizePP, false)
-            setVisibleSizeItem(sizeM, false)
-            setVisibleSizeItem(sizeG, false)
-            setVisibleSizeItem(sizeGG, false)
-            setVisibleSizeItem(sizeU, false)
-        }
 
         fun configUIforSizes(sizes_items: Array<ProductSize>) {
-            hiddenAllItems()
             for (size in sizes_items) {
-                when (size.size) {
-                    "P" -> setVisibleSizeItem(sizeP, size.available)
-                    "PP" -> setVisibleSizeItem(sizePP, size.available)
-                    "M" -> setVisibleSizeItem(sizeM, size.available)
-                    "G" -> setVisibleSizeItem(sizeG, size.available)
-                    "GG" -> setVisibleSizeItem(sizeGG, size.available)
-                    "U" -> setVisibleSizeItem(sizeU, size.available)
-                    else -> return
+                if (size.available) {
+                    val textView = TextView(this)
+                    val textViewContent = size.size
+                    val layout = LinearLayout.LayoutParams(
+                        ViewGroup.LayoutParams.WRAP_CONTENT,
+                        ViewGroup.LayoutParams.WRAP_CONTENT
+                    )
+                    layout.setMargins(0,0,25,50)
+                    textView.layoutParams = layout
+                    textView.setPadding(20,20,20,20)
+                    textView.setBackgroundResource(R.drawable.size_style)
+                    textView.textSize = 15f
+                    textView.gravity = Gravity.CENTER
+                    textView.text = textViewContent
+                    linearLayoutSize?.addView(textView)
+
                 }
             }
         }

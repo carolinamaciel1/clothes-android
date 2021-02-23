@@ -38,7 +38,7 @@ class ProductsListAdapter(private val products: List<Product>, private val conte
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val imgProduct = itemView.findViewById<ImageView>(R.id.img_product)
-        val titleProduct = itemView.findViewById<TextView>(R.id.clothes_title_id)
+        val titleProduct = itemView.findViewById<TextView>(R.id.clothes_title)
 
         var product: Product? = null
 
@@ -59,8 +59,7 @@ class ProductsListAdapter(private val products: List<Product>, private val conte
             if (product.image.isNotEmpty()) {
                 Picasso.get().load(product.image).into(imgProduct)
             } else {
-                // Missing image adjustment
-                Picasso.get().load(R.drawable.ic_baseline_error_24).into(imgProduct);
+                Picasso.get().load(R.color.gray).into(imgProduct);
             }
         }
     }
