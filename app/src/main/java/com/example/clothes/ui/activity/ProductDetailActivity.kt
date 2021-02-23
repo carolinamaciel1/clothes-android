@@ -37,13 +37,14 @@ class ProductDetailActivity : AppCompatActivity() {
         val sizeM = findViewById<TextView>(R.id.size_m)
         val sizeG = findViewById<TextView>(R.id.size_g)
         val sizeGG = findViewById<TextView>(R.id.size_gg)
+        val sizeU = findViewById<TextView>(R.id.size_u)
 
 
         fun configUIforOnSale(on_sale: Boolean, actual_price: String, discount_percentage: String) {
             onSaleProduct.isVisible = on_sale
             actualPriceProduct.isVisible = on_sale
             priceProduct.paintFlags = if (on_sale) Paint.STRIKE_THRU_TEXT_FLAG else 0
-            val discountString = "$actual_price ($discount_percentage off)"
+            val discountString = "$actual_price ($discount_percentage OFF)"
             val discountSpannable = SpannableString(discountString)
             val startIndex = discountString.indexOf("(", 0)
             discountSpannable.setSpan(
@@ -66,7 +67,17 @@ class ProductDetailActivity : AppCompatActivity() {
             item.width = if (isVisible) LinearLayout.LayoutParams.WRAP_CONTENT else 0
         }
 
+        fun hiddenAllItems() {
+            setVisibleSizeItem(sizeP, false)
+            setVisibleSizeItem(sizePP, false)
+            setVisibleSizeItem(sizeM, false)
+            setVisibleSizeItem(sizeG, false)
+            setVisibleSizeItem(sizeGG, false)
+            setVisibleSizeItem(sizeU, false)
+        }
+
         fun configUIforSizes(sizes_items: Array<ProductSize>) {
+            hiddenAllItems()
             for (size in sizes_items) {
                 when (size.size) {
                     "P" -> setVisibleSizeItem(sizeP, size.available)
@@ -74,6 +85,8 @@ class ProductDetailActivity : AppCompatActivity() {
                     "M" -> setVisibleSizeItem(sizeM, size.available)
                     "G" -> setVisibleSizeItem(sizeG, size.available)
                     "GG" -> setVisibleSizeItem(sizeGG, size.available)
+                    "U" -> setVisibleSizeItem(sizeU, size.available)
+                    else -> return
                 }
             }
         }

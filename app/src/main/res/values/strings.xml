@@ -11,5 +11,6 @@
     <string name="size_m">M</string>
     <string name="size_g">G</string>
     <string name="size_gg">GG</string>
+    <string name="size_u">U</string>
     <string name="sizes">TAMANHO</string>
 </resources>

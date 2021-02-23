@@ -3,8 +3,8 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -16,10 +16,10 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:layout_marginBottom="12dp"
-            android:layout_height="wrap_content">
+            android:layout_marginBottom="12dp">
 
             <ImageView
                 android:id="@+id/img_product"
@@ -33,10 +33,10 @@
                 android:id="@+id/on_sale_product"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:padding="5dp"
-                android:src="@mipmap/coupon"
                 android:layout_marginTop="350dp"
                 android:background="@color/black"
+                android:padding="5dp"
+                android:src="@mipmap/coupon"
                 android:visibility="visible" />
         </RelativeLayout>
 
@@ -109,7 +109,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@color/white"
-            android:layout_marginBottom="8dp"
             android:orientation="horizontal">
 
             <TextView
@@ -130,7 +129,6 @@
                 android:layout_weight="1"
                 android:background="@drawable/size_style"
                 android:text="@string/size_p"
-
                 android:textAlignment="center" />
 
             <TextView
@@ -152,18 +150,26 @@
                 android:layout_weight="1"
                 android:background="@drawable/size_style"
                 android:text="@string/size_g"
-
                 android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/size_gg"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/size_style"
                 android:text="@string/size_gg"
                 android:textAlignment="center" />
 
+            <TextView
+                android:id="@+id/size_u"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/size_style"
+                android:text="@string/size_u"
+                android:textAlignment="center" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
