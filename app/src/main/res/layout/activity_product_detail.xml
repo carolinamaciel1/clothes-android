@@ -27,7 +27,7 @@
                 android:layout_height="400dp"
                 android:background="#EFEDED"
                 android:scaleType="centerCrop"
-                android:src="@drawable/ic_launcher_background" />
+                android:src="@drawable/ic_launcher_foreground" />
 
             <ImageView
                 android:id="@+id/on_sale_product"

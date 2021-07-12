@@ -1,49 +1,61 @@
 package com.example.clothes.ui.activity
 
 import android.os.Bundle
-import android.util.Log
-import androidx.appcompat.app.AppCompatActivity
+import android.view.ViewTreeObserver
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.clothes.R
+import com.example.clothes.databinding.ActivityProductListBinding
 import com.example.clothes.model.Product
-import com.example.clothes.model.ProductList
-import com.example.clothes.retrofit.RetrofitInitializer
 import com.example.clothes.ui.adapter.ProductsListAdapter
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import com.example.clothes.viewModel.ProductListViewModel
 
+class ProductListActivity(
+    var viewModel: ProductListViewModel = ProductListViewModel()
+) : BaseAppActivity() {
+    private lateinit var productListActivityBinding: ActivityProductListBinding
 
-class ProductListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        productListActivityBinding = ActivityProductListBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_product_list)
+        setContentView(productListActivityBinding.root)
 
+        addObserverForDataLoaded()
+        observerProperties()
+        getData()
+    }
 
-        val call = RetrofitInitializer().productService().list()
-        call.enqueue(object : Callback<ProductList> {
+    private fun getData() {
+        viewModel.getProducts()
+    }
 
-            override fun onResponse(call: Call<ProductList>, response: Response<ProductList>) {
-                response.body()?.let {
-                    val products: List<Product>? = it.products
-                    if (products != null) {
-                        configureList(products)
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ProductList>, t: Throwable) {
-                t.message?.let { Log.e("onFailure error", it) }
-            }
+    private fun observerProperties() {
+        viewModel.products.observe(this, {
+            configureList(it)
         })
     }
 
-    fun configureList(products: List<Product>) {
-        val recyclerView = findViewById<RecyclerView>(R.id.clothes_recyclerview)
-        recyclerView.adapter = ProductsListAdapter(products, this)
-        val layoutManager = GridLayoutManager(this, 2)
-        recyclerView.layoutManager = layoutManager
+    private fun addObserverForDataLoaded() {
+        val content: RecyclerView = productListActivityBinding.clothesRecyclerview
+        content.viewTreeObserver.addOnPreDrawListener(
+            object : ViewTreeObserver.OnPreDrawListener {
+                override fun onPreDraw(): Boolean {
+                    return if (viewModel.isLoaded) {
+                        content.viewTreeObserver.removeOnPreDrawListener(this)
+                        true
+                    } else {
+                        false
+                    }
+                }
+            }
+        )
+    }
+
+    private fun configureList(products: List<Product>) {
+        productListActivityBinding.clothesRecyclerview.let { recyclerView ->
+            recyclerView.adapter = ProductsListAdapter(products)
+            val layoutManager = GridLayoutManager(this, 2)
+            recyclerView.layoutManager = layoutManager
+        }
     }
 }
 

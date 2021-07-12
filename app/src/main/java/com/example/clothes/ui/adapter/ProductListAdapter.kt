@@ -1,28 +1,23 @@
 package com.example.clothes.ui.adapter
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothes.R
+import com.example.clothes.databinding.ActivityCardviewItemClothesBinding
 import com.example.clothes.model.Product
 import com.example.clothes.ui.activity.ProductDetailActivity
 import com.example.clothes.utils.putExtraJson
 import com.squareup.picasso.Picasso
 
 
-class ProductsListAdapter(private val products: List<Product>, private val context: Context) :
+class ProductsListAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view =
-            LayoutInflater.from(context)
-                .inflate(R.layout.activity_cardview_item_clothes, parent, false)
-        return ViewHolder(view)
+        val bindingCardView = ActivityCardviewItemClothesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(bindingCardView)
     }
 
     override fun getItemCount(): Int {
@@ -35,10 +30,10 @@ class ProductsListAdapter(private val products: List<Product>, private val conte
     }
 
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(binding: ActivityCardviewItemClothesBinding) : RecyclerView.ViewHolder(binding.root) {
 
-        val imgProduct = itemView.findViewById<ImageView>(R.id.img_product)
-        val titleProduct = itemView.findViewById<TextView>(R.id.clothes_title)
+        private val imgProduct = binding.imgProduct
+        private val titleProduct = binding.clothesTitle
 
         var product: Product? = null
 
