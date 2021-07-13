@@ -36,7 +36,7 @@ class ProductDetailActivity : BaseAppActivity() {
         viewModel.product?.let { product ->
             productDetailActivityBinding.let {
                 it.nameProduct.text = product.name
-                it.priceProduct.text = product.regular_price
+                it.priceProduct.text = product.regularPrice
                 it.installmentsProduct.text = product.installments
 
                 configUIForSizes(product.sizes)
@@ -48,7 +48,7 @@ class ProductDetailActivity : BaseAppActivity() {
                         .into(productDetailActivityBinding.imgProduct);
                 }
 
-                configUIForOnSale(product.on_sale, product.actual_price, product.discount_percentage)
+                configUIForOnSale(product.onSale, product.actualPrice, product.discountPercentage)
             }
         }
     }

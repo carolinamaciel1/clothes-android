@@ -4,7 +4,6 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothes.R
 import com.example.clothes.databinding.ActivityCardviewItemClothesBinding
@@ -59,7 +58,7 @@ class ProductsListAdapter(private val products: List<Product>) :
             this.product = product
             titleProduct.text = product.name
 
-            if (product.on_sale) {
+            if (product.onSale) {
                 tagOffer.visibility = View.VISIBLE
             }else{
                 tagOffer.visibility = View.INVISIBLE
