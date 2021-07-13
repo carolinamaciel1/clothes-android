@@ -54,15 +54,15 @@ class ProductDetailActivity : BaseAppActivity() {
     }
 
     private fun configUIForOnSale(
-        on_sale: Boolean,
-        actual_price: String,
-        discount_percentage: String
+        onSale: Boolean,
+        actualPrice: String,
+        discountPercentage: String
     ) {
         val productDetail = productDetailActivityBinding
-        productDetail.onSaleProduct.isVisible = on_sale
-        productDetail.actualPriceProduct.isVisible = on_sale
-        productDetail.priceProduct.paintFlags = if (on_sale) Paint.STRIKE_THRU_TEXT_FLAG else 0
-        val discountString = "$actual_price ($discount_percentage OFF)"
+        productDetail.onSaleProduct.isVisible = onSale
+        productDetail.actualPriceProduct.isVisible = onSale
+        productDetail.priceProduct.paintFlags = if (onSale) Paint.STRIKE_THRU_TEXT_FLAG else 0
+        val discountString = "$actualPrice ($discountPercentage OFF)"
         val discountSpannable = SpannableString(discountString)
         val startIndex = discountString.indexOf("(", 0)
         discountSpannable.setSpan(
@@ -81,8 +81,8 @@ class ProductDetailActivity : BaseAppActivity() {
     }
 
 
-    private fun configUIForSizes(sizes_items: Array<ProductSize>) {
-        for (size in sizes_items) {
+    private fun configUIForSizes(sizesItems: Array<ProductSize>) {
+        for (size in sizesItems) {
             if (size.available) {
                 val textView = TextView(this)
                 val textViewContent = size.size
