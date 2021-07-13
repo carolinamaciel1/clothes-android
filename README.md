@@ -20,6 +20,5 @@ As informações da roupa que devem ser exibidas na tela 2 são:
 - Parcelamentos disponíveis;
 - Tamanhos disponíveis.
 - Pontos importantes:
-- Qualquer outro atributo que vier na api, que não represente os citados, deve ser ignorado.
+- Qualquer outro atributo que vier na api, deve ser ignorado.
 - Caso exista um preço promocional, exibir uma tag de promoção e "cortar" o preço regular.
-- A forma como os dados serão exibidos ficam ao seu critério. O quão "bonito" e fácil de entender é o que será avaliado.
