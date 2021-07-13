@@ -6,7 +6,7 @@ Linguagem: **Kotlin**.
 
 Api: http://www.mocky.io/v2/59b6a65a0f0000e90471257d
 
-O app contém ter duas telas:
+O app contém duas telas:
 
 1. Listagem das roupas exibindo nome e foto;
 2. Tela com as informações detalhadas da roupa selecionada na tela 1. 
