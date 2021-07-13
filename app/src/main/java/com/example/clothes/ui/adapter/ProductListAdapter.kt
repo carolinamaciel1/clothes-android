@@ -61,6 +61,8 @@ class ProductsListAdapter(private val products: List<Product>) :
 
             if (product.on_sale) {
                 tagOffer.visibility = View.VISIBLE
+            }else{
+                tagOffer.visibility = View.INVISIBLE
             }
 
             if (product.image.isNotEmpty()) {
