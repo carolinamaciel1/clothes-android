@@ -35,5 +35,5 @@ Imagens das telas
 [ProductsListActivity](https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela2.png) | 
 [ProductsDetailActivity](https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela3.png) 
 
-<img src="https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela1.png" width = "200" height ="350"alt="Tela1"/>
+<img src="https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela1.png" width = "200px" height ="350px"alt="Tela1"/>
 
