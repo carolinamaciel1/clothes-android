@@ -12,12 +12,12 @@ Testes de snapshots:
 2. Checa o click em um produto dada uma posição
 3. Faz o scroll pra uma posição de um produto e realiza o click 
 
-Informações da tela 1: 
+Informações na tela 1: 
 - Imagem do produto;
 - Nome do produto;
 - Tag de oferta (se houver);
 
-Informações da tela 2 são:
+Informações na tela 2:
 - Imagem;
 - Nome;
 - Preço;
