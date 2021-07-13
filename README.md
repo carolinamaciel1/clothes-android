@@ -29,5 +29,6 @@ Informações da tela 2 são:
 - Qualquer outro atributo que vier na api, deve ser ignorado.
 - Caso exista um preço promocional, exibir uma tag de promoção e "cortar" o preço regular.
 
-[My image](https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela1.png)
+[ProductsListActivity](https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela1.png)
+[ProductsDetailActivity](https://github.com/carolinamaciel1/carolinamaciel1.github.io/blob/master/imgs/tela2.png)
 
