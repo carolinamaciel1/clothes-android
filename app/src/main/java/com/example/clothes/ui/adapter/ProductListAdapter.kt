@@ -2,7 +2,9 @@ package com.example.clothes.ui.adapter
 
 import android.content.Intent
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.example.clothes.R
 import com.example.clothes.databinding.ActivityCardviewItemClothesBinding
@@ -16,7 +18,11 @@ class ProductsListAdapter(private val products: List<Product>) :
     RecyclerView.Adapter<ProductsListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val bindingCardView = ActivityCardviewItemClothesBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val bindingCardView = ActivityCardviewItemClothesBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
         return ViewHolder(bindingCardView)
     }
 
@@ -30,10 +36,12 @@ class ProductsListAdapter(private val products: List<Product>) :
     }
 
 
-    class ViewHolder(binding: ActivityCardviewItemClothesBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(binding: ActivityCardviewItemClothesBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         private val imgProduct = binding.imgProduct
         private val titleProduct = binding.clothesTitle
+        private val tagOffer = binding.tagOffer
 
         var product: Product? = null
 
@@ -50,6 +58,10 @@ class ProductsListAdapter(private val products: List<Product>) :
         fun bindView(product: Product) {
             this.product = product
             titleProduct.text = product.name
+
+            if (product.on_sale) {
+                tagOffer.visibility = View.VISIBLE
+            }
 
             if (product.image.isNotEmpty()) {
                 Picasso.get().load(product.image).into(imgProduct)

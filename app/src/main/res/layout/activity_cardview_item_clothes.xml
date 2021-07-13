@@ -8,33 +8,41 @@
     android:weightSum="50"
     cardview:cardCornerRadius="2dp">
 
-    <ImageView
-        android:id="@+id/clothes_img_id2"
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="#B3B3B3"
-        android:scaleType="centerCrop" />
-
-    <LinearLayout
-        android:orientation="vertical"
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ImageView
-            android:id="@+id/img_product"
+            android:id="@+id/tag_offer"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:background="#ff0000"
+            android:padding="5dp"
+            android:src="@mipmap/coupon"
+            android:elevation="5dp"
+            android:visibility="invisible" />
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="160dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground"/>
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/img_product"
+                android:layout_width="match_parent"
+                android:layout_height="160dp"
+                android:background="@color/gray"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_launcher_foreground"/>
 
-        <TextView
-            android:id="@+id/clothes_title"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@string/clothes_title"
-            android:textColor="#2d2d2d"
-            android:textSize="13sp" />
+            <TextView
+                android:id="@+id/clothes_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/clothes_title"
+                android:textColor="#2d2d2d"
+                android:textSize="13sp" />
 
-    </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
 
 </androidx.cardview.widget.CardView>
